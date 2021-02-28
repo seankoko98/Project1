@@ -9,12 +9,7 @@
 ***********************************************************************************/
 
 // image variables
-var livingRoomAssets = [];
-var bedRoomAssets = [];
-var officeAssets = [];
-var diningRoomAssets = [];
-var bathRoomAssets = [];
-var garageAssets = [];
+var typeAssets[];
 
 // instruction screen
 
@@ -33,29 +28,19 @@ var gTextOffset = 20;
 
 // load all images into an array
 function preload() {
-  //living room images
-  livingRoomAssets[0] = loadImage('assets/livingroom.png');
-  livingRoomAssets[1] = loadImage('assets/livingroom_table.png');
-
-  //bedroom images 
-  bedRoomAssets[0] = loadImage('assets/bedroom.png');
-  bedRoomAssets[1] = loadImage('assets/bedroom_bed.png');
-
-  //office images
-  officeAssets[0] = loadImage('assets/office.png');
-  officeAssets[1] = loadImage('assets/office_lamp.png');
-
-  //dining room images
-  diningRoomAssets[0] = loadImage('assets/diningroom.png');
-  diningRoomAssets[1] = loadImage('assets/diningroom_table.png');
-
-  //bathroom images
-  bathRoomAssets[0] = loadImage('assets/bathroom.png');
-  bathRoomAssets[1] = loadImage('assets/bathroom_tub.png');
- 
-  //garage images 
-  garageAssets[0] = loadImage('assets/garage.png');
-  garageAssets[1] = loadImage('assets/garage_tesla.png');
+  //pokemon type images
+  typeAssets[0] = loadImage('assets/splash.png');
+  typeAssets[1] = loadImage('assets/fire.png');
+  typeAssets[2] = loadImage('assets/water.png');
+  typeAssets[3] = loadImage('assets/electric.png');
+  typeAssets[4] = loadImage('assets/ground.png');
+  typeAssets[5] = loadImage('assets/flying.png');
+  typeAssets[6] = loadImage('assets/grass.png');
+  typeAssets[7] = loadImage('assets/ice.png');
+  typeAssets[8] = loadImage('assets/dragon.png');
+  typeAssets[9] = loadImage('assets/psychic.png');
+  typeAssets[10] = loadImage('assets/dark.png');
+  typeAssets[11] = loadImage('assets/ghost.png');
 }
 
 // Center drawing, drawFunction will be one for default
@@ -68,7 +53,7 @@ function setup() {
   textSize(24);
 
 // set to one for startup
-  drawFunction = drawlivingRoom;
+  drawFunction = drawSplash;
 }
 
 //calls state machine function
@@ -76,7 +61,13 @@ function draw() {
   drawFunction();
 }
 
+//splash draw function
+drawSplash = function() {
+  image(typeAssets[0], width/2, height/2);
+}
+
 //living room draw function
+
 drawlivingRoom = function() {
    image(livingRoomAssets[0],width/2, height/2);
    image(livingRoomAssets[1],280, 680);
