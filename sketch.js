@@ -9,7 +9,7 @@
 ***********************************************************************************/
 
 // image variables
-var typeAssets[];
+var typeAssets = [];
 
 // instruction screen
 
@@ -61,98 +61,92 @@ function draw() {
   drawFunction();
 }
 
-//splash draw function
+//splash screen draw function
 drawSplash = function() {
   image(typeAssets[0], width/2, height/2);
 }
 
-//living room draw function
+//fire type draw function
+drawfire = function() {
+   image(typeAssets[1],width/2, height/2);
 
-drawlivingRoom = function() {
-   image(livingRoomAssets[0],width/2, height/2);
-   image(livingRoomAssets[1],280, 680);
+   // click to grass state
+   if ( mouseIsPressed ) {
+    if ( mouseX >= 320 && mouseX <= 416 ){
+      if ( mouseY >= 340.5 && mouseY <= 371.5){
+        drawFunction = drawgrass;
+      }
+    }
+   }
+
+   // // click to ice state 
+   // if ( mouseIsPressed ) {
+   //  if ( mouseX >= 320 && mouseX <= 416 ){
+   //    if ( mouseY >= 340.5 && mouseY <= 371.5){
+   //      drawFunction = drawice;
+   //    }
+   //  }
+   // }
 }
 
-//bedroom draw function
-drawbedRoom = function() {
-   image(bedRoomAssets[0],width/2, height/2);
-   image(bedRoomAssets[1],871, 582);
+//water type draw function
+drawwater = function() {
+   image(typeAssets[2],width/2, height/2);
 }
 
-//office draw function
-drawOffice = function() {
-   image(officeAssets[0],width/2, height/2);
-   image(officeAssets[1],width/2, 100);
+//electric type draw function
+drawelectric = function() {
+   image(typeAssets[3],width/2, height/2);
 }
 
-//dining room draw function
-drawdiningRoom = function() {
-   image(diningRoomAssets[0],width/2, height/2);
-   image(diningRoomAssets[1], 550, 518);
+//ground type draw function
+drawground = function() {
+   image(typeAssets[4],width/2, height/2);
 }
 
-//bathroom draw function
-drawbathRoom = function() {
-   image(bathRoomAssets[0],width/2, height/2);
-   image(bathRoomAssets[1],width/2, 660);
+//flying type draw function
+drawflying = function() {
+   image(typeAssets[5],width/2, height/2);
 }
 
-//garage draw function
-drawgarage = function() {
-   image(garageAssets[0],width/2, height/2);
-   image(garageAssets[1], 400, 550);
+//grass type draw function
+drawgrass = function() {
+   image(typeAssets[6],width/2, height/2);
+}
+
+//ice type draw function
+drawice = function() {
+   image(typeAssets[7],width/2, height/2);
+}
+
+//dragon type draw function
+drawdragon = function() {
+   image(typeAssets[8],width/2, height/2);
+}
+
+//psychic type draw function
+drawpsychic= function() {
+   image(typeAssets[9],width/2, height/2);
+}
+
+//dark type draw function
+drawdark = function() {
+   image(typeAssets[10],width/2, height/2);
+}
+
+//ghost type draw function
+drawghost = function() {
+   image(typeAssets[11],width/2, height/2);
 }
 
 // Change the drawFunction variable based on your interaction
-function keyTyped() {
-//living room nav options
-  if( drawFunction === drawlivingRoom ) {
-    if(key === '4') {
-      drawFunction = drawdiningRoom;
-    }
-    else if(key === '6'){
-      drawFunction = drawgarage;
-  }
-}
-//bedroom nav options
-  if( drawFunction === drawbedRoom ) {
-    if(key === '5') {
-      drawFunction = drawbathRoom;
-    }
-  }
-//office room nav options
-  if( drawFunction === drawOffice ) {
-    if(key === '4') {
-      drawFunction = drawdiningRoom;
-    }
-    else if(key === '5'){
-      drawFunction = drawbathRoom;
-  }
-}
-//dining room nav options
-  if( drawFunction === drawdiningRoom ) {
-    if(key === '1') {
-      drawFunction = drawlivingRoom;
-    }
-    else if(key === '3'){
-      drawFunction = drawOffice;
+
+function mousePressed() {
+  // only change state if we are in splash screen
+  if( drawFunction === drawSplash ) {
+    drawFunction = drawfire;
   }
 }
 
-//bathroom nav options
-  if( drawFunction === drawbathRoom ) {
-    if(key === '2') {
-      drawFunction = drawbedRoom;
-    }
-    else if(key === '3'){
-      drawFunction = drawOffice;
-  }
-}
- 
-//garage nav options
-  if( drawFunction === drawgarage ) {
-    if(key === '1') {
-      drawFunction = drawlivingRoom;
-    }
-}
-}
+
+
