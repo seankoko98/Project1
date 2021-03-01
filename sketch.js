@@ -7,6 +7,8 @@
 
 
 ***********************************************************************************/
+// Global
+var gDebugMode = false;
 
 // image variables
 var typeAssets = [];
@@ -59,6 +61,11 @@ function setup() {
 //calls state machine function
 function draw() {
   drawFunction();
+
+//debug
+    if( gDebugMode == true ) {
+    drawDebugInfo();
+  }
 }
 
 //splash screen draw function
@@ -137,6 +144,19 @@ drawdark = function() {
 //ghost type draw function
 drawghost = function() {
    image(typeAssets[11],width/2, height/2);
+}
+
+  //debug function
+function drawDebugInfo() {
+  fill(0);
+    text("X: " + mouseX + "   Y: " + mouseY, 20, height - 20);
+}
+
+// keyTyped gets triggered 
+function keyTyped() {
+  if (key === ' ') {
+    gDebugMode = !gDebugMode;
+  }
 }
 
 // Change the drawFunction variable based on your interaction
