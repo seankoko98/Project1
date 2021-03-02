@@ -40,7 +40,7 @@ function setup() {
 // Center our drawing objects
   imageMode(CENTER);
   textAlign(CENTER);
-  textSize(24);
+  // textSize(24);
 
 // set to one for startup
   drawFunction = drawSplash;
@@ -51,9 +51,9 @@ function draw() {
   drawFunction();
 
 //debug
-    if( gDebugMode == true ) {
-    drawDebugInfo();
-  }
+  //   if( gDebugMode == true ) {
+  //   drawDebugInfo();
+  // }
 }
 
 //splash screen draw function
@@ -64,6 +64,7 @@ drawSplash = function() {
 //fire type draw function
 drawfire = function() {
    image(typeAssets[1],width/2, height/2);
+}
 
 //water type draw function
 drawwater = function() {
@@ -76,7 +77,7 @@ drawelectric = function() {
 }
 
 //ground type draw function
-drawground = function() {
+drawrock = function() {
    image(typeAssets[4],width/2, height/2);
 }
 
@@ -138,6 +139,7 @@ function mousePressed() {
 }
 
 function keyTyped() {
+  // fire state nav options 
   if ( drawFunction === drawfire ) {
     if ( key ==='1') {
       drawFunction = drawgrass;
@@ -146,10 +148,34 @@ function keyTyped() {
       drawFunction = drawice;
     }
     else if ( key ==='3') {
-      
+      drawFunction = drawwater;
+    }
+    else if ( key ==='4') {
+      drawFunction = drawrock;
+    }
+  }
+
+    // grass state nav options 
+  if ( drawFunction === drawgrass ) {
+    if ( key ==='1') {
+      drawFunction = drawrock;
+    }
+    else if ( key ==='2') {
+      drawFunction = drawwater;
+    }
+    else if ( key ==='3') {
+      drawFunction = drawice;
+    }
+    else if ( key ==='4') {
+      drawFunction = drawflying;
+    }
+    else if ( key ==='5') {
+      drawFunction = drawfire;
+    }
+    else if ( key ==='6') {
+      drawFunction = drawpsychic;
     }
   }
 }
-
 
 
