@@ -8,7 +8,7 @@
 
 ***********************************************************************************/
 // Global
-var gDebugMode = false;
+// var gDebugMode = false;
 
 // image variables
 var typeAssets = [];
@@ -65,64 +65,9 @@ drawSplash = function() {
 drawfire = function() {
    image(typeAssets[1],width/2, height/2);
 
-   // click to grass state
-   if ( mouseIsPressed ) {
-    if ( mouseX >= 320 && mouseX <= 416 ){
-      if ( mouseY >= 340.5 && mouseY <= 371.5){
-        drawFunction = drawgrass;
-      }
-    }
-   }
-
-   // click to ice state 
-   if ( mouseIsPressed ) {
-    if ( mouseX >= 320 && mouseX <= 416 ){
-      if ( mouseY >= 382 && mouseY <= 410){
-        drawFunction = drawice;
-      }
-    }
-   }
-
-  // click to water state 
-   if ( mouseIsPressed ) {
-    if ( mouseX >= 869 && mouseX <= 957 ){
-      if ( mouseY >= 341 && mouseY <= 371){
-        drawFunction = drawwater;
-      }
-    }
-   }
-
-  // click to ground state 
-   if ( mouseIsPressed ) {
-    if ( mouseX >= 869 && mouseX <= 957 ){
-      if ( mouseY >= 384 && mouseY <= 414){
-        drawFunction = drawground;
-      }
-    }
-   }
-}
-
 //water type draw function
 drawwater = function() {
    image(typeAssets[2],width/2, height/2);
-
-  // click to fire state 
-   if ( mouseIsPressed ) {
-    if ( mouseX >= 320 && mouseX <= 416 ){
-      if ( mouseY >= 342 && mouseY <= 371){
-        drawFunction = drawfire;
-      }
-    }
-   }
-
-  // // click to grass state 
-  //  if ( mouseIsPressed ) {
-  //   if ( mouseX >= 864 && mouseX <= 950 ){
-  //     if ( mouseY >= 342 && mouseY <= 371){
-  //       drawFunction = drawgrass;
-  //     }
-  //   }
-  //  }
 }
 
 //electric type draw function
@@ -170,18 +115,18 @@ drawghost = function() {
    image(typeAssets[11],width/2, height/2);
 }
 
-  //debug function
-function drawDebugInfo() {
-  fill(0);
-    text("X: " + mouseX + "   Y: " + mouseY, 600, 800);
-}
+//   //debug function
+// function drawDebugInfo() {
+//   fill(0);
+//     text("X: " + mouseX + "   Y: " + mouseY, 600, 800);
+// }
 
-// keyTyped gets triggered 
-function keyTyped() {
-  if (key === ' ') {
-    gDebugMode = !gDebugMode;
-  }
-}
+// // keyTyped gets triggered 
+// function keyTyped() {
+//   if (key === ' ') {
+//     gDebugMode = !gDebugMode;
+//   }
+// }
 
 // Change the drawFunction variable based on your interaction
 
@@ -189,6 +134,20 @@ function mousePressed() {
   // only change state if we are in splash screen
   if( drawFunction === drawSplash ) {
     drawFunction = drawfire;
+  }
+}
+
+function keyTyped() {
+  if ( drawFunction === drawfire ) {
+    if ( key ==='1') {
+      drawFunction = drawgrass;
+    }
+    else if ( key ==='2') {
+      drawFunction = drawice;
+    }
+    else if ( key ==='3') {
+      
+    }
   }
 }
 
