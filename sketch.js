@@ -1,5 +1,5 @@
 /***********************************************************************************
-	Rooms of My "Dream" House
+	Pokemon Type Advantage Guide (Project 1)
 	by Sean Ko
 
 ------------------------------------------------------------------------------------
@@ -13,20 +13,8 @@ var gDebugMode = false;
 // image variables
 var typeAssets = [];
 
-// instruction screen
-
-var instructions = []; 
-
-// variables used for instructions 
-var midX; 
-var startY;
-var lineHeight = 48;
-
 // variable that is a function 
 var drawFunction;
-
-// offset from bottom of screen
-var gTextOffset = 20;
 
 // load all images into an array
 function preload() {
@@ -86,19 +74,55 @@ drawfire = function() {
     }
    }
 
-   // // click to ice state 
-   // if ( mouseIsPressed ) {
-   //  if ( mouseX >= 320 && mouseX <= 416 ){
-   //    if ( mouseY >= 340.5 && mouseY <= 371.5){
-   //      drawFunction = drawice;
-   //    }
-   //  }
-   // }
+   // click to ice state 
+   if ( mouseIsPressed ) {
+    if ( mouseX >= 320 && mouseX <= 416 ){
+      if ( mouseY >= 382 && mouseY <= 410){
+        drawFunction = drawice;
+      }
+    }
+   }
+
+  // click to water state 
+   if ( mouseIsPressed ) {
+    if ( mouseX >= 869 && mouseX <= 957 ){
+      if ( mouseY >= 341 && mouseY <= 371){
+        drawFunction = drawwater;
+      }
+    }
+   }
+
+  // click to ground state 
+   if ( mouseIsPressed ) {
+    if ( mouseX >= 869 && mouseX <= 957 ){
+      if ( mouseY >= 384 && mouseY <= 414){
+        drawFunction = drawground;
+      }
+    }
+   }
 }
 
 //water type draw function
 drawwater = function() {
    image(typeAssets[2],width/2, height/2);
+
+  // click to fire state 
+   if ( mouseIsPressed ) {
+    if ( mouseX >= 320 && mouseX <= 416 ){
+      if ( mouseY >= 342 && mouseY <= 371){
+        drawFunction = drawfire;
+      }
+    }
+   }
+
+  // // click to grass state 
+  //  if ( mouseIsPressed ) {
+  //   if ( mouseX >= 864 && mouseX <= 950 ){
+  //     if ( mouseY >= 342 && mouseY <= 371){
+  //       drawFunction = drawgrass;
+  //     }
+  //   }
+  //  }
 }
 
 //electric type draw function
@@ -149,7 +173,7 @@ drawghost = function() {
   //debug function
 function drawDebugInfo() {
   fill(0);
-    text("X: " + mouseX + "   Y: " + mouseY, 20, height - 20);
+    text("X: " + mouseX + "   Y: " + mouseY, 600, 800);
 }
 
 // keyTyped gets triggered 
