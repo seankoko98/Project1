@@ -58,62 +58,62 @@ function draw() {
 
 //splash screen draw function
 drawSplash = function() {
-  image(typeAssets[0], width/2, height/2);
+  image(typeAssets[0], width/2, height/2, 1280, 800);
 }
 
 //fire type draw function
 drawfire = function() {
-   image(typeAssets[1],width/2, height/2);
+   image(typeAssets[1],width/2, height/2, 1280, 800);
 }
 
 //water type draw function
 drawwater = function() {
-   image(typeAssets[2],width/2, height/2);
+   image(typeAssets[2],width/2, height/2, 1280, 800);
 }
 
 //electric type draw function
 drawelectric = function() {
-   image(typeAssets[3],width/2, height/2);
+   image(typeAssets[3],width/2, height/2, 1280, 800);
 }
 
 //ground type draw function
-drawrock = function() {
-   image(typeAssets[4],width/2, height/2);
+drawground = function() {
+   image(typeAssets[4],width/2, height/2, 1280, 800);
 }
 
 //flying type draw function
 drawflying = function() {
-   image(typeAssets[5],width/2, height/2);
+   image(typeAssets[5],width/2, height/2, 1280, 800);
 }
 
 //grass type draw function
 drawgrass = function() {
-   image(typeAssets[6],width/2, height/2);
+   image(typeAssets[6],width/2, height/2, 1280, 800);
 }
 
 //ice type draw function
 drawice = function() {
-   image(typeAssets[7],width/2, height/2);
+   image(typeAssets[7],width/2, height/2, 1280, 800);
 }
 
 //dragon type draw function
 drawdragon = function() {
-   image(typeAssets[8],width/2, height/2);
+   image(typeAssets[8],width/2, height/2, 1280, 800);
 }
 
 //psychic type draw function
 drawpsychic= function() {
-   image(typeAssets[9],width/2, height/2);
+   image(typeAssets[9],width/2, height/2, 1280, 800);
 }
 
 //dark type draw function
 drawdark = function() {
-   image(typeAssets[10],width/2, height/2);
+   image(typeAssets[10],width/2, height/2, 1280, 800);
 }
 
 //ghost type draw function
 drawghost = function() {
-   image(typeAssets[11],width/2, height/2);
+   image(typeAssets[11],width/2, height/2, 1280, 800);
 }
 
 //   //debug function
@@ -141,41 +141,158 @@ function mousePressed() {
 function keyTyped() {
   // fire state nav options 
   if ( drawFunction === drawfire ) {
-    if ( key ==='1') {
+    if ( key ==='g') {
       drawFunction = drawgrass;
     }
-    else if ( key ==='2') {
+    else if ( key ==='i') {
       drawFunction = drawice;
     }
-    else if ( key ==='3') {
+    else if ( key ==='w') {
       drawFunction = drawwater;
     }
-    else if ( key ==='4') {
-      drawFunction = drawrock;
+    else if ( key ==='r') {
+      drawFunction = drawground;
     }
   }
 
     // grass state nav options 
   if ( drawFunction === drawgrass ) {
-    if ( key ==='1') {
-      drawFunction = drawrock;
+    if ( key ==='r') {
+      drawFunction = drawground;
     }
-    else if ( key ==='2') {
+    else if ( key ==='w') {
       drawFunction = drawwater;
     }
-    else if ( key ==='3') {
+    else if ( key ==='i') {
       drawFunction = drawice;
     }
-    else if ( key ==='4') {
+    else if ( key ==='y') {
       drawFunction = drawflying;
     }
-    else if ( key ==='5') {
+    else if ( key ==='f') {
       drawFunction = drawfire;
     }
-    else if ( key ==='6') {
+    else if ( key ==='p') {
       drawFunction = drawpsychic;
     }
   }
+
+    // ground state nav options 
+  if ( drawFunction === drawground ) {
+    if ( key ==='e') {
+      drawFunction = drawelectric;
+    }
+    else if ( key ==='f') {
+      drawFunction = drawfire;
+    }
+    else if ( key ==='w') {
+      drawFunction = drawwater;
+    }
+    else if ( key ==='y') {
+      drawFunction = drawflying;
+    }
+    else if ( key ==='g') {
+      drawFunction = drawgrass;
+    }
+    else if ( key ==='i') {
+      drawFunction = drawice;
+    }
+  }
+
+    // ice state nav options 
+  if ( drawFunction === drawice ) {
+    if ( key ==='r') {
+      drawFunction = drawground;
+    }
+    else if ( key ==='f') {
+      drawFunction = drawfire;
+    }
+    else if ( key ==='o') {
+      drawFunction = drawdragon;
+    }
+    else if ( key ==='y') {
+      drawFunction = drawflying;
+    }
+    else if ( key ==='g') {
+      drawFunction = drawgrass;
+    }
+  }
+
+    // water state nav options 
+  if ( drawFunction === drawwater ) {
+    if ( key ==='e') {
+      drawFunction = drawelectric;
+    }
+    else if ( key ==='f') {
+      drawFunction = drawfire;
+    }
+    else if ( key ==='g') {
+      drawFunction = drawgrass;
+    }
+  }
+
+   // electric state nav options 
+  if ( drawFunction === drawelectric ) {
+    if ( key ==='w') {
+      drawFunction = drawwater;
+    }
+    else if ( key ==='y') {
+      drawFunction = drawflying;
+    }
+    else if ( key ==='r') {
+      drawFunction = drawground;
+    }
+  }
+
+   // psychic state nav options 
+  if ( drawFunction === drawpsychic ) {
+    if ( key ==='g') {
+      drawFunction = drawgrass;
+    }
+    else if ( key ==='k') {
+      drawFunction = drawdark;
+    }
+  }
+
+   // dark state nav options 
+  if ( drawFunction === drawdark ) {
+    if ( key ==='p') {
+      drawFunction = drawpsychic;
+    }
+    else if ( key ==='s') {
+      drawFunction = drawghost;
+    }
+  }
+
+   // ghost state nav options 
+  if ( drawFunction === drawghost ) {
+    if ( key ==='p') {
+      drawFunction = drawpsychic;
+    }
+    else if ( key ==='k') {
+      drawFunction = drawdark;
+    }
+  }
+
+  // flying state nav options 
+  if ( drawFunction === drawflying ) {
+    if ( key ==='g') {
+      drawFunction = drawgrass;
+    }
+    else if ( key ==='e') {
+      drawFunction = drawelectric;
+    }
+    else if ( key ==='i') {
+      drawFunction = drawice;
+    }
+  }
+
+ // dragon state nav options 
+  if ( drawFunction === drawdragon ) {
+    if ( key ==='i') {
+      drawFunction = drawice;
+    }
+}
 }
 
 
