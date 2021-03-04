@@ -30,6 +30,7 @@ function preload() {
   typeAssets[9] = loadImage('assets/psychic.png');
   typeAssets[10] = loadImage('assets/dark.png');
   typeAssets[11] = loadImage('assets/ghost.png');
+  typeAssets[12] = loadImage('assets/menu.png');
 }
 
 // Center drawing, drawFunction will be one for default
@@ -58,6 +59,11 @@ function draw() {
 //splash screen draw function
 drawSplash = function() {
   image(typeAssets[0], width/2, height/2, 1280, 800);
+}
+
+//menu screen draw function
+drawMenu = function() {
+  image(typeAssets[12], width/2, height/2, 1280, 800);
 }
 
 //fire type draw function
@@ -133,11 +139,49 @@ drawghost = function() {
 function mousePressed() {
   // only change state if we are in splash screen
   if( drawFunction === drawSplash ) {
-    drawFunction = drawfire;
+    drawFunction = drawMenu;
   }
 }
 
 function keyTyped() {
+
+// menu nav options 
+  if ( drawFunction === drawMenu ) {
+    if ( key ==='g') {
+      drawFunction = drawgrass;
+    }
+    else if ( key ==='i') {
+      drawFunction = drawice;
+    }
+    else if ( key ==='w') {
+      drawFunction = drawwater;
+    }
+    else if ( key ==='r') {
+      drawFunction = drawground;
+    }
+    else if ( key ==='y') {
+      drawFunction = drawflying;
+    }
+    else if ( key ==='f') {
+      drawFunction = drawfire;
+    }
+    else if ( key ==='p') {
+      drawFunction = drawpsychic;
+    }
+    else if ( key ==='o') {
+      drawFunction = drawdragon;
+    }
+    else if ( key ==='s') {
+      drawFunction = drawghost;
+    }
+    else if ( key ==='k') {
+      drawFunction = drawdark;
+    }
+    else if ( key ==='e') {
+      drawFunction = drawelectric;
+    }
+  }
+
   // fire state nav options 
   if ( drawFunction === drawfire ) {
     if ( key ==='g') {
