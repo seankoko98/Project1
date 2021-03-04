@@ -3,8 +3,7 @@
 	by Sean Ko
 
 ------------------------------------------------------------------------------------
-	Take a tour of my minimalistic eco-friendly and plant-friendly home through simple states (rooms)!
-
+This is a state machine that allows the user to venture through the different type combinations presented in the Pokemon Games. 
 
 ***********************************************************************************/
 // Global
